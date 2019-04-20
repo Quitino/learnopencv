@@ -6,15 +6,27 @@ find_package( OpenCV REQUIRED )
 
 include_directories( ${OpenCV_INCLUDE_DIRS})
 
-include(./dlib/dlib/cmake)
+include(./dlib/dlib/dlib/cmake)
 
-MACRO(add_example name)
-  ADD_EXECUTABLE(${name} ${name}.cpp)
-  TARGET_LINK_LIBRARIES(${name} ${OpenCV_LIBS} dlib::dlib)
-ENDMACRO()
 
-add_example(face_detection_opencv_haar)
-add_example(face_detection_opencv_dnn)
-add_example(face_detection_dlib_hog)
-add_example(face_detection_dlib_mmod)
-add_example(run-all)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/run)
+
+
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/run)
+
+add_executable(face_detection_opencv_haar src/face_detection_opencv_haar.cpp)
+target_link_libraries(face_detection_opencv_haar ${OpenCV_LIBS} dlib::dlib)
+
+add_executable(face_detection_opencv_dnn src/face_detection_opencv_dnn.cpp)
+target_link_libraries(face_detection_opencv_dnn ${OpenCV_LIBS} dlib::dlib)
+
+add_executable(face_detection_dlib_hog src/face_detection_dlib_hog.cpp)
+target_link_libraries(face_detection_dlib_hog ${OpenCV_LIBS} dlib::dlib)
+
+add_executable(face_detection_dlib_mmod src/face_detection_dlib_mmod.cpp)
+target_link_libraries(face_detection_dlib_mmod ${OpenCV_LIBS} dlib::dlib)
+
+add_executable(run-all src/run-all.cpp)
+target_link_libraries(run-all ${OpenCV_LIBS} dlib::dlib)
+
+
