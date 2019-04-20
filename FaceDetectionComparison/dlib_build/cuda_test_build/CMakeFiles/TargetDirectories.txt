@@ -1,3 +1,0 @@
-/home/fb/FaceDetectionComparison/dlib_build/cuda_test_build/CMakeFiles/rebuild_cache.dir
-/home/fb/FaceDetectionComparison/dlib_build/cuda_test_build/CMakeFiles/edit_cache.dir
-/home/fb/FaceDetectionComparison/dlib_build/cuda_test_build/CMakeFiles/cuda_test.dir
